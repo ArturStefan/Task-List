@@ -20,4 +20,9 @@ public class TaskListServicesImplement implements TaskListServices{
 		return taskListRepository.findAll();
 	}
 
+	@Override
+	public TaskList create(TaskList taskList) {
+		return taskListRepository.save(taskList);
+	}
+
 }
