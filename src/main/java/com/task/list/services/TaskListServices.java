@@ -13,4 +13,6 @@ public interface TaskListServices {
 	public TaskList findById(Long id);
 	
 	public TaskList create(TaskList taskList);
+	
+	public TaskList update(TaskList taskList);
 }
