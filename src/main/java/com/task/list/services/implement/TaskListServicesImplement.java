@@ -29,4 +29,9 @@ public class TaskListServicesImplement implements TaskListServices{
 	public TaskList create(TaskList taskList) {
 		return repository.save(taskList);
 	}
+
+	@Override
+	public TaskList update(TaskList taskList) {
+		return repository.save(taskList);
+	}
 }
