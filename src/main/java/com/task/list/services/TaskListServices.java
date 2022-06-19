@@ -9,4 +9,6 @@ import com.task.list.model.TaskList;
 @Service
 public interface TaskListServices {
 	public List<TaskList> findAll();
+	
+	public TaskList create(TaskList taskList);
 }
