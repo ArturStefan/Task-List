@@ -10,5 +10,7 @@ import com.task.list.model.TaskList;
 public interface TaskListServices {
 	public List<TaskList> findAll();
 	
+	public TaskList findById(Long id);
+	
 	public TaskList create(TaskList taskList);
 }
