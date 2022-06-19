@@ -13,16 +13,20 @@ import com.task.list.services.TaskListServices;
 public class TaskListServicesImplement implements TaskListServices{
 	
 	@Autowired
-	TaskListRepository taskListRepository;
+	TaskListRepository repository;
 	
 	@Override
 	public List<TaskList> findAll() {
-		return taskListRepository.findAll();
+		return repository.findAll();
+	}
+	
+	@Override
+	public TaskList findById(Long id) {
+		return repository.findById(id).orElse(new TaskList());
 	}
 
 	@Override
 	public TaskList create(TaskList taskList) {
-		return taskListRepository.save(taskList);
+		return repository.save(taskList);
 	}
-
 }
