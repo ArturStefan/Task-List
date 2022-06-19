@@ -34,4 +34,9 @@ public class TaskListServicesImplement implements TaskListServices{
 	public TaskList update(TaskList taskList) {
 		return repository.save(taskList);
 	}
+
+	@Override
+	public void delete(Long id) {
+		repository.deleteById(id);
+	}
 }
