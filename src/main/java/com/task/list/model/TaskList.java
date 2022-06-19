@@ -1,15 +1,26 @@
 package com.task.list.model;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class TaskList {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class TaskList implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
-	private Date dateStart;
-	private Date dateFinish;
-	private String Description;
+	private String dateStart;
+	private String dateFinish;
+	private String description;
 	private boolean finished;
 	public Long getId() {
 		return id;
@@ -23,23 +34,23 @@ public class TaskList {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDateStart() {
+	public String getDateStart() {
 		return dateStart;
 	}
-	public void setDateStart(Date dateStart) {
+	public void setDateStart(String dateStart) {
 		this.dateStart = dateStart;
 	}
-	public Date getDateFinish() {
+	public String getDateFinish() {
 		return dateFinish;
 	}
-	public void setDateFinish(Date dateFinish) {
+	public void setDateFinish(String dateFinish) {
 		this.dateFinish = dateFinish;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public boolean isFinished() {
 		return finished;
@@ -50,11 +61,11 @@ public class TaskList {
 	@Override
 	public String toString() {
 		return "TaskList [id=" + id + ", name=" + name + ", dateStart=" + dateStart + ", dateFinish=" + dateFinish
-				+ ", Description=" + Description + ", finished=" + finished + "]";
+				+ ", Description=" + description + ", finished=" + finished + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Description, dateFinish, dateStart, finished, id, name);
+		return Objects.hash(description, dateFinish, dateStart, finished, id, name);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -65,7 +76,7 @@ public class TaskList {
 		if (getClass() != obj.getClass())
 			return false;
 		TaskList other = (TaskList) obj;
-		return Objects.equals(Description, other.Description) && Objects.equals(dateFinish, other.dateFinish)
+		return Objects.equals(description, other.description) && Objects.equals(dateFinish, other.dateFinish)
 				&& Objects.equals(dateStart, other.dateStart) && finished == other.finished
 				&& Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
