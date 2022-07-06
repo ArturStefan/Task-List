@@ -76,7 +76,7 @@ public class TaskListServicesImplement implements TaskListServices {
 
 	@Override
 	public ResponseEntity<Task> updateFinished(UUID id) {
-		Task entity = repository.findById(task.getId()).orElse(new Task());
+		Task entity = repository.findById(id).orElse(new Task());
 		
 		if (entity.getId() == null) {
 			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);

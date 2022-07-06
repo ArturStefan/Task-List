@@ -51,7 +51,7 @@ public class TaskListController {
 		return services.delete(id);
 	}
 
-	@PatchMapping
+	@PutMapping("/{id}")
 	public ResponseEntity<Task> updateFinished(@PathVariable("id") UUID id){
 		return services.updateFinished(id);
 	}
