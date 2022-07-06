@@ -20,4 +20,6 @@ public interface TaskListServices {
 	public ResponseEntity<Task> update(Task taskList);
 	
 	public ResponseEntity<Task> delete(UUID id);
+	
+	public ResponseEntity<Task> updateFinished(UUID id);
 }

@@ -54,7 +54,8 @@ public class TaskListServicesImplement implements TaskListServices {
 		Task entity = repository.findById(task.getId()).orElse(new Task());
 		if (entity.getId() == null) {
 			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);
-		} else {
+		} 
+		else {
 			entity.setId(task.getId());
 			entity.setName(task.getName());
 			entity.setDateStart(task.getDateStart());
@@ -71,5 +72,19 @@ public class TaskListServicesImplement implements TaskListServices {
 	public ResponseEntity<Task> delete(UUID id) {
 		repository.deleteById(id);
 		return new ResponseEntity<Task>(HttpStatus.NO_CONTENT);
+	}
+
+	@Override
+	public ResponseEntity<Task> updateFinished(UUID id) {
+		Task entity = repository.findById(task.getId()).orElse(new Task());
+		
+		if (entity.getId() == null) {
+			return new ResponseEntity<Task>(HttpStatus.NOT_FOUND);
+		} 
+		else {
+				entity.setFinished(true);
+				
+				return new ResponseEntity<Task>(repository.save(entity),HttpStatus.OK);
+			}
 	}
 }
